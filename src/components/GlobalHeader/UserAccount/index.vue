@@ -55,7 +55,7 @@ export default {
             return _.get(this, "currentUser.nickName", "guest");
         },
         isLogin() {
-            return !_.isEmpty(_.get(this, "currentUser.userId"));
+            return !_.isEmpty(_.get(this, "currentUser.userName"));
         },
         avatarStyle() {
             return {

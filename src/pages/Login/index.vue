@@ -4,25 +4,41 @@
     </div>
 </template>
 
-
 <script>
-import LoginForm from '@/components/LoginForm';
-
+import LoginForm from "@/components/LoginForm";
+import { mapActions } from "vuex";
 export default {
-    name: 'Login',
+    name: "Login",
 
     components: {
-        LoginForm,
+        LoginForm
     },
 
     methods: {
+        ...mapActions("global", ["login"]),
         onLogin(form) {
-            console.log(form.account, form.password);
-            const path = this.$route.query.to || '/';
-            this.$router.push({ path });
-        },
-    },
+            const { account, password } = form;
+            console.log(account, password);
+            if (!account || !password) {
+                this.$message.info("请填写账号密码！");
+                return;
+            }
+            const payload = {
+                username: account,
+                password
+            };
+            this.login(payload)
+                .then(res => {
+                    console.log(res);
+                    const path = this.$route.query.to || "/";
+                    this.$router.push({ path });
+                })
+                .catch(err => {
+                    this.$message.error(err.message);
+                });
+        }
+    }
 };
 </script>
 
-<style src='./index.less' lang='less' />
+<style src="./index.less" lang="less" />

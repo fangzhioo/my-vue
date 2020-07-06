@@ -43,7 +43,7 @@
 import NavHeader from "@/components/NavHeader";
 import SiderMenu from "@/components/SiderMenu";
 import { headerMenuConfig, asideMenuConfig } from "../../../config/menu";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 // const { mapState } = createNamespacedHelpers("global");
 
 export default {
@@ -60,7 +60,14 @@ export default {
             asideMenuConfig
         };
     },
-
+    methods: {
+        ...mapActions("global", ["getCurrentUser"])
+    },
+    mounted() {
+        this.getCurrentUser().catch(err => {
+            console.log(err);
+        });
+    },
     computed: {
         ...mapState("global", ["currentUser"]),
         ...mapState("setting", [
@@ -107,9 +114,7 @@ export default {
                         : 0
             };
         }
-    },
-
-    methods: {}
+    }
 };
 </script>
 

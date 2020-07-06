@@ -4,10 +4,13 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 import "./main.less";
+import axios from "./utils/fetch";
 
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
+
+Vue.prototype.$axios = axios;
 
 new Vue({
     router,
