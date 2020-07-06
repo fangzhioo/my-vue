@@ -1,34 +1,41 @@
 <template>
-  <div class="user-layout">
-    <div class="header">
-      <a href="#">
-        <img class="logo" :src="logo" alt="logo" />
-        <span class="title">
-          奇点云
-        </span>
-      </a>
+    <div class="user-layout">
+        <div class="header">
+            <a href="#">
+                <img class="logo" :src="logo" alt="logo" />
+                <span class="title">{{ title }} </span>
+            </a>
+        </div>
+        <router-view />
+        <basic-footer />
     </div>
-    <router-view />
-    <basic-footer />
-  </div>
 </template>
 
 <script>
 import BasicFooter from "@/components/BasicFooter";
-import settings from "../../../config/settings";
+import { mapState } from "vuex";
 
 export default {
-  name: "UserLayout",
+    name: "UserLayout",
 
-  components: {
-    BasicFooter
-  },
+    components: {
+        BasicFooter
+    },
 
-  data() {
-    return {
-      ...settings
-    };
-  }
+    computed: {
+        ...mapState("setting", [
+            "logo",
+            "title",
+            "layout",
+            "navHeight",
+            "sideWidth",
+            "sideTheme",
+            "contentWidth",
+            "fixedHeader",
+            "autoHideHeader",
+            "fixSiderbar"
+        ])
+    }
 };
 </script>
 
