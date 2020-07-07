@@ -1,7 +1,7 @@
 <template>
     <div class="basic-layout">
-        <el-container class="container-layout">
-            <el-header
+        <a-layout class="container-layout">
+            <a-layout-header
                 :class="[
                     'header-layout',
                     fixedHeader ? 'header-layout-fixed' : ''
@@ -18,9 +18,9 @@
                     :side-width="sideWidth"
                     :menu-data="headerMenuConfig"
                 />
-            </el-header>
-            <el-container class="container-layout" :style="containerStyle">
-                <el-aside
+            </a-layout-header>
+            <a-layout class="container-layout" :style="containerStyle">
+                <a-layout-sider
                     :class="[
                         'aside-layout',
                         fixedHeader && fixSiderbar ? 'aside-layout-fixed' : ''
@@ -28,14 +28,14 @@
                     :style="asideStyle"
                 >
                     <sider-menu :menu-data="asideMenuConfig" />
-                </el-aside>
-                <el-container class="content-layout" :style="contentStyle">
-                    <el-main class="main">
+                </a-layout-sider>
+                <a-layout-content class="content-layout" :style="contentStyle">
+                    <a-layout-content class="main">
                         <router-view />
-                    </el-main>
-                </el-container>
-            </el-container>
-        </el-container>
+                    </a-layout-content>
+                </a-layout-content>
+            </a-layout>
+        </a-layout>
     </div>
 </template>
 

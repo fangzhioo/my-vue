@@ -1,9 +1,9 @@
 <template>
     <div class="header-search">
-        <el-input
+        <a-input-search
             v-model="search"
             placeholder="请输入搜索内容"
-            suffix-icon="el-icon-search"
+            @search="handleSearch"
         />
     </div>
 </template>
@@ -15,6 +15,11 @@ export default {
         return {
             search: "vue"
         };
+    },
+    methods: {
+        handleSearch(val) {
+            console.log(val);
+        }
     },
     props: {}
 };

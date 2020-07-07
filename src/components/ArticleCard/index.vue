@@ -1,17 +1,13 @@
 <template>
-    <el-card class="box-card">
-        <div slot="header" class="clearfix">
-            <span>{{ data.title }}</span>
+    <a-card :title="data.title">
+        <a slot="extra" href="#">more</a>
+        <div>
+            {{ data.content }}
         </div>
-        <div class="text item">
-            <div>
-                {{ data.content }}
-            </div>
-            <div>
-                {{ data.authorNickname }}
-            </div>
+        <div>
+            {{ data.authorNickname }}
         </div>
-    </el-card>
+    </a-card>
 </template>
 
 <script>

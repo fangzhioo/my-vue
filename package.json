@@ -15,9 +15,9 @@
         "lint:stylelint": "stylelint src/**/*.less --fix"
     },
     "dependencies": {
+        "ant-design-vue": "^1.6.3",
         "axios": "^0.19.2",
         "core-js": "^3.6.5",
-        "element-ui": "^2.13.2",
         "lodash": "^4.17.15",
         "normalize.css": "^8.0.1",
         "vue": "^2.6.11",

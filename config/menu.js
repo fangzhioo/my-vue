@@ -21,7 +21,7 @@ const asideMenuConfig = [
     {
         name: "仪表盘",
         path: "/dashboard",
-        icon: "el-icon-house",
+        icon: "dashboard",
         children: [
             {
                 name: "分析页",
@@ -40,7 +40,7 @@ const asideMenuConfig = [
     {
         name: "表单页",
         path: "/form",
-        icon: "iconfont icon-edit-square",
+        icon: "edit",
         children: [
             {
                 name: "基础表单",
@@ -59,7 +59,7 @@ const asideMenuConfig = [
     {
         name: "列表页",
         path: "/list",
-        icon: "iconfont icon-table",
+        icon: "table",
         children: [
             {
                 name: "搜索列表",
@@ -96,7 +96,7 @@ const asideMenuConfig = [
     {
         name: "详情页",
         path: "/profile",
-        icon: "iconfont icon-detail",
+        icon: "read",
         children: [
             {
                 name: "基础详情页",
@@ -111,7 +111,7 @@ const asideMenuConfig = [
     {
         name: "结果页",
         path: "/result",
-        icon: "iconfont icon-check-circle",
+        icon: "file",
         children: [
             {
                 name: "成功页",
@@ -126,7 +126,7 @@ const asideMenuConfig = [
     {
         name: "异常页",
         path: "/exception",
-        icon: "iconfont icon-error",
+        icon: "bug",
         children: [
             {
                 name: "403",
@@ -145,7 +145,7 @@ const asideMenuConfig = [
     {
         name: "个人页",
         path: "/account",
-        icon: "iconfont icon-user",
+        icon: "user",
         children: [
             {
                 name: "个人中心",

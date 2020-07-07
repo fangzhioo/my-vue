@@ -1,12 +1,12 @@
 <template>
-  <el-card shadow="always">
-    <el-button type="primary">返回首页</el-button>
-  </el-card>
+    <a-card shadow="always">
+        <a-button type="primary">返回首页</a-button>
+    </a-card>
 </template>
 
 <script>
 export default {
-  name: "NotFound"
+    name: "NotFound"
 };
 </script>
 

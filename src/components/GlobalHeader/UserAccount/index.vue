@@ -1,6 +1,25 @@
 <template>
     <div class="user-account">
-        <el-dropdown @command="handleCommand">
+        <a-dropdown>
+            <div class="user-avatar">
+                <a-avatar size="small" :src="avatar" :style="avatarStyle" />
+                <a type="info" class="user-name" :underline="false">
+                    {{ nickName }}
+                </a>
+            </div>
+            <a-menu slot="overlay">
+                <a-menu-item>
+                    <a href="javascript:;">个人中心</a>
+                </a-menu-item>
+                <a-menu-item>
+                    <a href="javascript:;">个人设置</a>
+                </a-menu-item>
+                <a-menu-item>
+                    <a href="javascript:;">退出登录</a>
+                </a-menu-item>
+            </a-menu>
+        </a-dropdown>
+        <!-- <el-dropdown @command="handleCommand">
             <div class="user-avatar">
                 <el-avatar size="small" :src="avatar" :style="avatarStyle" />
                 <el-link type="info" class="user-name" :underline="false">
@@ -31,7 +50,7 @@
                     登录
                 </el-dropdown-item>
             </el-dropdown-menu>
-        </el-dropdown>
+        </el-dropdown> -->
     </div>
 </template>
 
