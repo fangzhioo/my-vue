@@ -7,7 +7,7 @@ module.exports = {
     sideWidth: 256, // 侧栏宽度，默认 256px
     sideTheme: "light", // 侧栏主题，支持 light/dark 两种主题，默认 light
     contentWidth: "fluid", // 内容区宽度，支持 fluid/fixed 两种方案，默认 fluid
-    fixedHeader: false, // 固定导航栏，默认 true
+    fixedHeader: true, // 固定导航栏，默认 true
     autoHideHeader: true, // 自动隐藏导航栏，默认 false
     fixSiderbar: false // 固定侧边栏，默认 true
 };

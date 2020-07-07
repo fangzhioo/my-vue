@@ -1,5 +1,4 @@
 // 全局状态，侧栏折叠、站内消息等
-import Request from "@/utils/fetch";
 class CurrentUser {
     userId = undefined;
     userName = undefined;
@@ -15,19 +14,15 @@ export default {
 
     actions: {
         login({ commit }, payload) {
-            return Request({
-                url: "/api/login",
-                method: "post",
-                data: { ...payload }
-            }).then(res => {
-                commit("CHANGE_STATE_CURRENT_USER", res.data);
-                return res;
-            });
+            return window.API.blog.user.doLogin
+                .request({}, { ...payload })
+                .then(res => {
+                    commit("CHANGE_STATE_CURRENT_USER", res.data);
+                    return res;
+                });
         },
         getCurrentUser({ commit }) {
-            return Request({
-                url: "/api/currentUser"
-            }).then(res => {
+            return window.API.blog.user.currentUser.request({}).then(res => {
                 commit("CHANGE_STATE_CURRENT_USER", res.data);
                 return res;
             });

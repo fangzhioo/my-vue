@@ -49,7 +49,7 @@ const routerConfig = [
                 children: [
                     {
                         path: "/list/search/articles",
-                        component: NotFound
+                        component: () => import("@/pages/List/SearchList")
                     },
                     {
                         path: "/list/search/projects",

@@ -12,6 +12,10 @@ Vue.use(ElementUI);
 
 Vue.prototype.$axios = axios;
 
+// 引入pont
+import "@/api";
+Vue.prototype.$API = window.API;
+
 new Vue({
     router,
     store,

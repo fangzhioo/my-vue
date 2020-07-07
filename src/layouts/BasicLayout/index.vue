@@ -64,8 +64,8 @@ export default {
         ...mapActions("global", ["getCurrentUser"])
     },
     mounted() {
-        this.getCurrentUser().catch(err => {
-            console.log(err);
+        this.getCurrentUser().catch(() => {
+            this.$message.warning("尚未登陆");
         });
     },
     computed: {
