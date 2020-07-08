@@ -5,17 +5,17 @@
 </template>
 
 <script>
-import BaseMenu from './BaseMenu';
+import BaseMenu from "./BaseMenu";
 
 export default {
-    name: 'SiderMenu',
+    name: "SiderMenu",
 
     components: {
-        BaseMenu,
+        BaseMenu
     },
 
-    props: {},
+    props: {}
 };
 </script>
 
-<style src="./index.less" lang="less" />
+<style src="./index.scss" lang="scss" />

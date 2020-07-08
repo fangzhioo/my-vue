@@ -2,268 +2,250 @@ type ObjectMap<Key extends string | number | symbol = any, Value = any> = {
   [key in Key]: Value;
 };
 
-declare namespace defs {
-  export namespace blog {
-    export class AliyunOssAntdPolicyBo {
-      /** accessId */
-      accessId?: string;
+import { AxiosRequestConfig as RequestConfig } from 'axios';
 
-      /** dir */
-      dir?: string;
+export namespace blog {
+  export class AliyunOssAntdPolicyBo {
+    /** accessId */
+    accessId: string;
 
-      /** expire */
-      expire?: number;
+    /** dir */
+    dir: string;
 
-      /** host */
-      host?: string;
+    /** expire */
+    expire: number;
 
-      /** policy */
-      policy?: string;
+    /** host */
+    host: string;
 
-      /** signature */
-      signature?: string;
-    }
+    /** policy */
+    policy: string;
 
-    export class BlogArticleDTO {
-      /** cid */
-      cid?: number;
+    /** signature */
+    signature: string;
+  }
 
-      /** content */
-      content?: string;
+  export class BlogArticleDTO {
+    /** cid */
+    cid: number;
 
-      /** cover */
-      cover?: string;
+    /** content */
+    content: string;
 
-      /** editor */
-      editor?: string;
+    /** cover */
+    cover: string;
 
-      /** editorContent */
-      editorContent?: string;
+    /** editor */
+    editor: string;
 
-      /** editorTheme */
-      editorTheme?: string;
+    /** editorContent */
+    editorContent: string;
 
-      /** id */
-      id?: number;
+    /** editorTheme */
+    editorTheme: string;
 
-      /** subtitle */
-      subtitle?: string;
+    /** id */
+    id: number;
 
-      /** title */
-      title?: string;
-    }
+    /** subtitle */
+    subtitle: string;
 
-    export class BlogArticleVO {
-      /** articleId */
-      articleId?: number;
+    /** title */
+    title: string;
+  }
 
-      /** authorAvatar */
-      authorAvatar?: string;
+  export class BlogArticleVO {
+    /** articleId */
+    articleId: number;
 
-      /** authorId */
-      authorId?: number;
+    /** authorAvatar */
+    authorAvatar: string;
 
-      /** authorNickname */
-      authorNickname?: string;
+    /** authorId */
+    authorId: number;
 
-      /** cid */
-      cid?: number;
+    /** authorNickname */
+    authorNickname: string;
 
-      /** content */
-      content?: string;
+    /** cid */
+    cid: number;
 
-      /** cover */
-      cover?: string;
+    /** content */
+    content: string;
 
-      /** editor */
-      editor?: string;
+    /** cover */
+    cover: string;
 
-      /** editorTheme */
-      editorTheme?: string;
+    /** editor */
+    editor: string;
 
-      /** gmtCreate */
-      gmtCreate?: string;
+    /** editorTheme */
+    editorTheme: string;
 
-      /** gmtModified */
-      gmtModified?: string;
+    /** gmtCreate */
+    gmtCreate: string;
 
-      /** status */
-      status?: number;
+    /** gmtModified */
+    gmtModified: string;
 
-      /** subtitle */
-      subtitle?: string;
+    /** status */
+    status: number;
 
-      /** title */
-      title?: string;
+    /** subtitle */
+    subtitle: string;
 
-      /** userLike */
-      userLike?: number;
-    }
+    /** title */
+    title: string;
 
-    export class CommonResult<T0 = any> {
-      /** code */
-      code?: number;
+    /** userLike */
+    userLike: number;
+  }
 
-      /** data */
-      data?: T0;
+  export class CommonResult {
+    /** code */
+    code: number;
 
-      /** msg */
-      msg?: string;
-    }
+    /** data */
+    data: T0;
 
-    export class UserLoginDTO {
-      /** password */
-      password?: string;
+    /** msg */
+    msg: string;
+  }
 
-      /** remember */
-      remember?: boolean;
+  export class UserLoginDTO {
+    /** password */
+    password: string;
 
-      /** username */
-      username?: string;
-    }
+    /** remember */
+    remember: boolean;
+
+    /** username */
+    username: string;
   }
 }
 
-declare namespace API {
-  export namespace blog {
+export namespace blog {
+  /**
+   * Aliyun Oss Controller
+   */
+  export namespace aliyunOss {
     /**
-     * Aliyun Oss Controller
+     * antdPolicy
+     * /api/aliyun/antdPolicy
      */
-    export namespace aliyunOss {
-      /**
-       * antdPolicy
-       * /api/aliyun/antdPolicy
-       */
-      export namespace antdPolicy {
-        export class Params {}
+    export namespace antdPolicy {
+      export type ResponseType = Promise<
+        blog.CommonResult<blog.AliyunOssAntdPolicyBo>
+      >;
+      export function request(options?: RequestConfig): ResponseType;
+    }
+  }
 
-        export type Response = defs.blog.CommonResult<
-          defs.blog.AliyunOssAntdPolicyBo
-        >;
-        export const init: Response;
-        export function request(
-          params: Params,
-        ): Promise<defs.blog.CommonResult<defs.blog.AliyunOssAntdPolicyBo>>;
+  /**
+   * Blog Article Controller
+   */
+  export namespace blogArticle {
+    /**
+     * countArticleByQuery
+     * /api/article/countArticleByQuery
+     */
+    export namespace countArticleByQuery {
+      export class Params {
+        /** current */
+        current?: number;
+        /** limit */
+        limit?: number;
+        /** offset */
+        offset?: number;
+        /** pageSize */
+        pageSize?: number;
       }
+
+      export type ResponseType = Promise<blog.CommonResult<number>>;
+      export function request(
+        params: Params,
+        options?: RequestConfig,
+      ): ResponseType;
     }
 
     /**
-     * Blog Article Controller
+     * 获取文章详情
+     * /api/article/getArticleById
      */
-    export namespace blogArticle {
-      /**
-       * countArticleByQuery
-       * /api/article/countArticleByQuery
-       */
-      export namespace countArticleByQuery {
-        export class Params {
-          /** current */
-          current;
-          /** limit */
-          limit;
-          /** offset */
-          offset;
-          /** pageSize */
-          pageSize;
-        }
-
-        export type Response = defs.blog.CommonResult<number>;
-        export const init: Response;
-        export function request(
-          params: Params,
-        ): Promise<defs.blog.CommonResult<number>>;
+    export namespace getArticleById {
+      export class Params {
+        /** articleId */
+        articleId: number;
       }
 
-      /**
-       * 获取文章详情
-       * /api/article/getArticleById
-       */
-      export namespace getArticleById {
-        export class Params {
-          /** articleId */
-          articleId;
-        }
-
-        export type Response = defs.blog.CommonResult<defs.blog.BlogArticleVO>;
-        export const init: Response;
-        export function request(
-          params: Params,
-        ): Promise<defs.blog.CommonResult<defs.blog.BlogArticleVO>>;
-      }
-
-      /**
-       * 获取文章列表
-       * /api/article/listArticleByQuery
-       */
-      export namespace listArticleByQuery {
-        export class Params {
-          /** current */
-          current;
-          /** limit */
-          limit;
-          /** offset */
-          offset;
-          /** pageSize */
-          pageSize;
-        }
-
-        export type Response = defs.blog.CommonResult<
-          Array<defs.blog.BlogArticleVO>
-        >;
-        export const init: Response;
-        export function request(
-          params: Params,
-        ): Promise<defs.blog.CommonResult<Array<defs.blog.BlogArticleVO>>>;
-      }
-
-      /**
-       * publishArticle
-       * /api/article/publishArticle
-       */
-      export namespace publishArticle {
-        export class Params {}
-
-        export type Response = defs.blog.CommonResult<number>;
-        export const init: Response;
-        export function request(
-          params: Params,
-          bodyParams: defs.blog.BlogArticleDTO,
-        ): Promise<defs.blog.CommonResult<number>>;
-      }
+      export type ResponseType = Promise<blog.CommonResult<blog.BlogArticleVO>>;
+      export function request(
+        params: Params,
+        options?: RequestConfig,
+      ): ResponseType;
     }
 
     /**
-     * User Controller
+     * 获取文章列表
+     * /api/article/listArticleByQuery
      */
-    export namespace user {
-      /**
-       * currentUser
-       * /api/currentUser
-       */
-      export namespace currentUser {
-        export class Params {}
-
-        export type Response = defs.blog.CommonResult;
-        export const init: Response;
-        export function request(
-          params: Params,
-        ): Promise<defs.blog.CommonResult>;
+    export namespace listArticleByQuery {
+      export class Params {
+        /** current */
+        current?: number;
+        /** limit */
+        limit?: number;
+        /** offset */
+        offset?: number;
+        /** pageSize */
+        pageSize?: number;
       }
 
-      /**
-       * doLogin
-       * /api/login
-       */
-      export namespace doLogin {
-        export class Params {}
+      export type ResponseType = Promise<
+        blog.CommonResult<Array<blog.BlogArticleVO>>
+      >;
+      export function request(
+        params: Params,
+        options?: RequestConfig,
+      ): ResponseType;
+    }
 
-        export type Response = defs.blog.CommonResult;
-        export const init: Response;
-        export function request(
-          params: Params,
-          bodyParams: defs.blog.UserLoginDTO,
-        ): Promise<defs.blog.CommonResult>;
-      }
+    /**
+     * publishArticle
+     * /api/article/publishArticle
+     */
+    export namespace publishArticle {
+      export type ResponseType = Promise<blog.CommonResult<number>>;
+      export function request(
+        bodyParams: blog.BlogArticleDTO,
+        options?: RequestConfig,
+      ): ResponseType;
+    }
+  }
+
+  /**
+   * User Controller
+   */
+  export namespace user {
+    /**
+     * currentUser
+     * /api/currentUser
+     */
+    export namespace currentUser {
+      export type ResponseType = Promise<blog.CommonResult>;
+      export function request(options?: RequestConfig): ResponseType;
+    }
+
+    /**
+     * doLogin
+     * /api/login
+     */
+    export namespace doLogin {
+      export type ResponseType = Promise<blog.CommonResult>;
+      export function request(
+        bodyParams: blog.UserLoginDTO,
+        options?: RequestConfig,
+      ): ResponseType;
     }
   }
 }

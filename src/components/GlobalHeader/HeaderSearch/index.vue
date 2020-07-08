@@ -1,23 +1,17 @@
 <template>
     <div class="header-search">
-        <el-input
-            v-model="search"
-            placeholder="请输入搜索内容"
-            suffix-icon="el-icon-search"
-        />
+        <el-input placeholder="请输入搜索内容" suffix-icon="sa-icon-search" />
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Vue } from "vue-property-decorator";
+
+export default Vue.extend({
     name: "HeaderSearch",
-    data() {
-        return {
-            search: "vue"
-        };
-    },
+
     props: {}
-};
+});
 </script>
 
-<style src="./index.less" lang="less" />
+<style src="./index.scss" lang="scss" />

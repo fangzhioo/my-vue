@@ -19,9 +19,9 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import RightContent from "@/components/GlobalHeader/RightContent";
-import { isBrowser } from "../../utils/utils";
+import { isBrowser } from "@/utils/utils";
 
 export default {
     name: "NavHeader",
@@ -71,4 +71,4 @@ export default {
 };
 </script>
 
-<style src="./index.less" lang="less" />
+<style src="./index.scss" lang="scss" />

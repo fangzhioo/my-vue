@@ -7,16 +7,13 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'BasicFooter',
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
 
-    data() {
-        return {
-            year: new Date().getFullYear(),
-        };
-    },
-};
+@Component
+export default class BasicFooter extends Vue {
+    year = new Date().getFullYear();
+}
 </script>
 
-<style src="./index.less" lang="less" />
+<style src="./index.scss" lang="scss" />

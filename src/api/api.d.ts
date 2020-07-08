@@ -1,1 +1,2 @@
-/// <reference path="./blog/api.d.ts" />
+export * from './blog/api';
+export as namespace defs;
